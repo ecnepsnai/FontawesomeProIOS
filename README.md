@@ -1,6 +1,6 @@
 # FontAwesome Pro for iOS
 
-Extensions to use FontAwesome Pro icons in iOS. Currently Objective-C only *for now*.
+Extensions to use FontAwesome Pro icons in iOS in both Objective-C and Swift.
 
 **Note:** You must have a FontAwesome 5 Pro license in order for these extensions to work. We do not
 provide a copy of the icons.
@@ -13,7 +13,9 @@ provide a copy of the icons.
 4. Add the ttf file into your Xcode project
 5. Ensure that all of the .ttf files are included in the target
 6. Update your apps info.plist and specify the fonts to include
-7. Add `FontAwesome.m` and `FontAwesome.h` to your project
+7. Add the source files to your project:
+    - **If using Objective-C:** Add `FontAwesome.m` and `FontAwesome.h` to your project  
+    - **If using Swift:** Add `FontAwesome.swift` to your project
 
 # Usage
 
@@ -24,12 +26,22 @@ A (large) enum of all possible icons is available as the `FAIcon` type.
 - Icon variation are suffixed with the variation name, any of `Light`, `Regular`, `Solid`
 - Duotone icons are not supported
 
-```c
+## Example (Objective-C):
+
+```objectivec
 FAIcon icon = FAPlusCircleLight;
 
 UILabel * label;
 label.font = [UIFont fontAwesomeFontForIcon:icon size:label.font.pointSize];
 label.text = [NSString fontAwesomeIcon:icon];
+```
+
+## Example (Swift):
+
+```swift
+let icon = FAIcon.FAPlusCircleLight
+let string = icon.string()
+let font = icon.font(size: 15.0)
 ```
 
 ## Updating Icons
